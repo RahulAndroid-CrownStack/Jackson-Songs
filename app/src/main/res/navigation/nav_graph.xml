@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_arg"
+    android:label="List"
+    app:startDestination="@id/songListFragment">
+
+    <fragment
+        android:id="@+id/songListFragment"
+        android:name="com.coderbychance.jecksonsong.ui.song_list.SongListFragment"
+        android:label="Michal Jackson"
+        tools:layout="@layout/fragment_song_list">
+        <action
+            android:id="@+id/action_songListFragment_to_songDetailFragment"
+            app:destination="@id/songDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/songDetailFragment"
+        android:name="com.coderbychance.jecksonsong.ui.details.SongDetailFragment"
+        android:label="Detail"
+        tools:layout="@layout/fragment_song_detail">
+        <argument
+            android:name="song"
+            app:argType="com.coderbychance.jecksonsong.data.SongInfo" />
+    </fragment>
+</navigation>
