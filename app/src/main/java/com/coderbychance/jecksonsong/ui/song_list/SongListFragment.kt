@@ -2,18 +2,15 @@ package com.coderbychance.jecksonsong.ui.song_list
 
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
-import android.view.MenuInflater
 import android.view.View
-import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.coderbychance.jecksonsong.R
+import com.coderbychance.jecksonsong.api.SongResponse
 import com.coderbychance.jecksonsong.data.SongInfo
 import com.coderbychance.jecksonsong.databinding.FragmentSongListBinding
-import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
 
 private const val TAG = "SongListFragment"
@@ -41,19 +38,26 @@ class SongListFragment : Fragment(R.layout.fragment_song_list),
     }
 
     private fun getSongs(query: String) {
-        val mquery = query.replace(" ","+")
+        val mQuery = query.replace(" ", "+")
 
         binding.recyclerView.visibility = View.GONE
         binding.progressBar.visibility = View.VISIBLE
 
-        viewModel.getSongsList(mquery).observe(viewLifecycleOwner) { response ->
-            binding.recyclerView.isVisible = (response != null && response.results.isNotEmpty())
-            binding.textViewEmpty.isVisible = (response == null || response.results.isEmpty())
-
-            binding.progressBar.visibility = View.GONE
+        viewModel.getSongsObserver(mQuery).observe(viewLifecycleOwner) { response ->
             if (response != null && response.results.isNotEmpty()) {
-                songListAdapter.submitList(response.results)
+               setData(response)
             }
+        }
+
+    }
+
+    private fun setData(response: SongResponse) {
+        binding.recyclerView.isVisible = (response.results.isNotEmpty())
+        binding.textViewEmpty.isVisible = (response.results.isEmpty())
+
+        binding.progressBar.visibility = View.GONE
+        if (response.results.isNotEmpty()) {
+            songListAdapter.submitList(response.results)
         }
     }
 
