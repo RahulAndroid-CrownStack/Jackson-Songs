@@ -34,6 +34,7 @@ class SongListFragment : Fragment(R.layout.fragment_song_list),
         binding.apply {
             recyclerView.adapter = songListAdapter
         }
+
         getSongs("Michael+jackson")
     }
 
