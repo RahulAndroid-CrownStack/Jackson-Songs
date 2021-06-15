@@ -56,3 +56,10 @@ To quickly start a new project from this boilerplate follow the next steps:
 
 ```
 
+#Reference
+ - RxJava 
+    - [Github](https://github.com/ReactiveX/RxJava)
+    - [RxJava & RxAndroid for Beginners](https://codingwithmitch.com/courses/rxjava-rxandroid-for-beginners/)
+ 
+
+
