@@ -41,25 +41,6 @@ class SongViewModel @ViewModelInject constructor(private val songRepository: Son
         disposableList.add(disposable)
     }
 
-    private fun getSongsObserverRx(): Observer<SongResponse> {
-        return object : Observer<SongResponse> {
-            override fun onSubscribe(d: Disposable?) {
-
-            }
-
-            override fun onNext(value: SongResponse?) {
-                songsData.postValue(value)
-            }
-
-            override fun onError(e: Throwable?) {
-                songsData.postValue(null)
-            }
-
-            override fun onComplete() {
-
-            }
-        }
-    }
 
     override fun onCleared() {
         super.onCleared()
