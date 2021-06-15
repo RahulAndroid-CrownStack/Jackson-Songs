@@ -13,7 +13,7 @@ Libraries and tools included:
 
 ## Sample
 
-[](https://noctischat.com/gifs/sample.gif)
+![](https://noctischat.com/gifs/sample.gif)
 
 
 ## Requirements
