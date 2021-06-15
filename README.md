@@ -1,4 +1,5 @@
 # Jackson-Songs
+
 This project cant be used as a Reference project for Integrating topics like RxJava, Dagger Hilt
 
 Libraries and tools included:
@@ -8,6 +9,11 @@ Libraries and tools included:
 - [Retrofit 2](http://square.github.io/retrofit/)
 - [Hilt](https://developer.android.com/codelabs/android-hilt#0)
 - [View Binding](https://developer.android.com/topic/libraries/view-binding)
+
+
+## Sample
+
+[](https://noctischat.com/gifs/sample.gif)
 
 
 ## Requirements
